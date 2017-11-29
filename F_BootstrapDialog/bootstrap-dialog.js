@@ -1,3 +1,10 @@
+/**
+ * 使用bootstrap风格的dialog插件
+ * 前置：jquery,bootstrap
+ * @param contentJq
+ * @param options
+ * @constructor
+ */
 function F_BootstrapDialog(contentJq,options) {
     this.$ = {
         window:$('<div class="dialog-window" style="display: none;"></div>'),

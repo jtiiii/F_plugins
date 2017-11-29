@@ -1,4 +1,8 @@
-
+/**
+ * 拖拽插件
+ * 前置：jquery
+ * @type {{openDrag: DragOn.openDrag}}
+ */
 var DragOn = {
     openDrag:function(dragDom,moveDom){
         $(dragDom).bind('mousedown',function(evt){
