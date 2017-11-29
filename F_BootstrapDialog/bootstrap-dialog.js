@@ -44,15 +44,13 @@ F_BootstrapDialog.prototype = {
         $('body').append(this.$.window);
     },
     close: function (callback) {
-        // this.windowJq.css('display', 'none');
         this.$.window.fadeOut(200);
         if (typeof callback == 'function') {
             callback(this);
         }
     },
     open: function (callback) {
-        // this.windowJq.css('display', 'block');
-        this.$.window.fadeIn("800");
+        this.$.window.fadeIn(800);
         if (typeof callback == 'function') {
             callback(this);
         }
