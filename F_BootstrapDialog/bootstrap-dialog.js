@@ -1,6 +1,6 @@
 /**
  * 使用bootstrap风格的dialog插件
- * 前置：jquery,bootstrap
+ * 前置：jquery,bootstrap,F_dragOn
  * @param contentJq
  * @param options
  * @constructor
@@ -71,7 +71,7 @@ F_BootstrapDialog.prototype = {
         });
     },
     dragOn:function(){
-        //开启拖动，需要dragOn.js的支持
+        //开启拖动，需要F_dragOn的支持
         DragOn.openDrag(this.$.heading[0],this.$.window[0]);
     }
 };
