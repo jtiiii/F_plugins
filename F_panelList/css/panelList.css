@@ -1,0 +1,40 @@
+.panelList{
+    list-style:none;
+    padding:10px;
+}
+.panelList .panelList-item-content{
+    position: relative;
+    border:1px solid #bce8f1;
+    border-radius: 5px;
+    padding:10px;
+    margin:10px auto;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.panelList .panelList-item-detail{
+    border:1px solid #ffd46f;
+    border-top: none;
+    border-radius: 5px;
+    padding:0px;
+    margin:-10px 10px 0px 10px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+    display:none;
+    width:calc(100% - 50px);
+    overflow: hidden;
+}
+.panelList .panelList-detailBtn{
+    background:url('../images/expend.png');
+    display: block;
+    width:20px;
+    height:20px;
+    animation:btnExpend 1s;
+}
+
+@keyframes btn-expend {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(45deg);}
+}
+
+@keyframes btn-shrink {
+    0% {transform:rotate(45deg);}
+    100% {transform:rotate(0deg);}
+}
