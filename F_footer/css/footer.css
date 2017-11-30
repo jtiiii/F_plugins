@@ -1,0 +1,20 @@
+.f_footer{
+    list-style: none;
+}
+.f_footer > li{
+    float:left;
+}
+.f_footer .firstOrEnd{
+    margin:0px 5px;
+}
+.f_footer .upOrDown{
+    margin:0px 3px;
+}
+.f_footer > li > button{
+    min-width:25px;
+}
+.f_footer .active button{
+    background:#0e90d2;
+    color:#fff;
+    border-color:#4f70ed;
+}
