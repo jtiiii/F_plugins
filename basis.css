@@ -1,0 +1,27 @@
+.f_input-text{
+    outline:none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding:2px;
+
+}
+.f_input-text:focus{
+    box-shadow: 0px 0px 8px 0px #ccc;
+}
+.f_button-default{
+    cursor:pointer;
+    outline:none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    padding: 2px;
+    text-align: center;
+    color: #666;
+}
+.f_button-default:hover{
+    color:#000;
+    font-weight: bold;
+}
+.f_button-default:active{
+    background: #eee;
+}
