@@ -16,5 +16,14 @@ var F_utils={
                 }
             });
         }
+    },
+    /**
+     * 获得basePath路径
+     */
+    getBasePath:function(){
+        var projectPath = window.location.pathname == 'null'?'':window.location.pathname.substring(0,window.location.pathname.indexOf('/',1));
+        var serverPath = window.location.origin;
+        var basePath = serverPath + projectPath;
+        return basePath;
     }
 }
