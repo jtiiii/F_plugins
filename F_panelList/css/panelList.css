@@ -1,8 +1,10 @@
 .panelList{
     list-style:none;
-    padding:10px;
+    width:100%;
+    padding:0px;
 }
 .panelList .panelList-item-content{
+    margin:10px;
     position: relative;
     border:1px solid #bce8f1;
     border-radius: 5px;
