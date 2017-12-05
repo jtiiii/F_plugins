@@ -10,7 +10,7 @@ function F_footer($ul,options){
     this.options={
         active:0,
         items:[
-            {text:undefined}
+            {text:1}
         ],
         maxShow:5,
         onResetActive:null
@@ -26,10 +26,12 @@ F_footer.prototype = {
             this.$ul.addClass('f_footer');
         }
         this.resetItems(this.options.items,this.options.active);
-
     },
     resetActive:function(active){
         this.resetItems(this.options.items,active);
+        if(typeof this.options.onResetActive == 'function'){
+            this.options.onResetActive(active,this.options.items[this.options.active]);
+        }
     },
     resetItems:function(items,active){
         if(active !=undefined){
@@ -39,6 +41,7 @@ F_footer.prototype = {
             if(active > items.length-1){
                 active = items.length-1;
             }
+            this.options.items[this.options.active].active = false;
             this.options.active = active;
         }
         this.options.items = items;
