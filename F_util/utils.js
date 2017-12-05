@@ -25,5 +25,32 @@ var F_utils={
         var serverPath = window.location.origin;
         var basePath = serverPath + projectPath;
         return basePath;
+    },
+    /**
+     * 判断一个数据是否有效
+     * 无效的数据:
+     *  number -- NaN
+     *  object -- {},[],null
+     *  string -- ''
+     *  undefined
+     * @param data
+     * @returns {boolean}
+     */
+    isBlank:function (data) {
+        var type = typeof data;
+        switch(type) {
+            case 'number':
+                if(data || data == 0){
+                    return false;
+                }
+                return true;
+            case 'undefined':
+                return true;
+            case 'string':
+                return !Boolean(data);
+            case 'object':
+                return $.isEmptyObject(data);
+            default:return false;
+        }
     }
 }

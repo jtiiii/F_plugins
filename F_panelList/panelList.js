@@ -1,6 +1,6 @@
 /**
  * 列表展示框插件
- *  前置：jquery
+ *  前置：jquery,F_utils
  * @param $dom
  * @param options
  * @constructor
@@ -11,8 +11,9 @@ function F_panelList($dom,options){
     this.options = {
         id:undefined,
         items:[
-            {idField:undefined,content:null,detail:null}
+            {idField:undefined,content:$('<div>暂无数据</div>'),detail:null}
         ]
+        ,onLoadSuccess:null
     };
     this._init(options);
 }
@@ -30,6 +31,10 @@ F_panelList.prototype = {
             var contentDetail = this._initItem(item);
             this.$dom.append(contentDetail);
         }.bind(this));
+
+        if(typeof this.options.onLoadSuccess == 'function'){
+            this.options.onLoadSuccess(this.options.items);
+        }
     },
     /**
      * 初始化
@@ -37,10 +42,12 @@ F_panelList.prototype = {
      * @private
      */
     _init:function(options){
-        this.$dom.addClass("panelList");
+        if(!this.$dom.hasClass("panelList")){
+            this.$dom.addClass("panelList");
+        }
+        F_utils.replaceProperty(this.options,options);
         this.options.id != undefined && id?id:this.generatorId();
-        this.options.items=options.items;
-        this.resetItems(options.items);
+        this.resetItems(this.options.items);
     },
     /**
      * 初始化item
