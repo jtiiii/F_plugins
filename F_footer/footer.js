@@ -38,10 +38,12 @@ F_footer.prototype = {
             if(active < 0){
                 active = 0;
             }
-            if(active > items.length-1){
-                active = items.length-1;
+            if(!F_utils.isBlank(items)){
+                if(active > items.length-1){
+                    active = items.length-1;
+                }
+                items[this.options.active].active = false;
             }
-            this.options.items[this.options.active].active = false;
             this.options.active = active;
         }
         this.options.items = items;

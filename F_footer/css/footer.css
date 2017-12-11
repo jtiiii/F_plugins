@@ -1,5 +1,6 @@
 .f_footer{
     list-style: none;
+    margin:0px;
 }
 .f_footer > li{
     float:left;
