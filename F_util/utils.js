@@ -52,5 +52,18 @@ var F_utils={
                 return $.isEmptyObject(data);
             default:return false;
         }
+    },
+    /**
+     * 获得表单中需要提交的元素的值
+     * @param formJq
+     * @returns {{}}
+     */
+    getFormData : function(formJq){
+        var keys = formJq.serializeArray();
+        var param = {};
+        $.each(keys,function(index,key){
+            param[key.name] = key.value;
+        });
+        return param;
     }
 }
