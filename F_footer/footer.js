@@ -42,7 +42,9 @@ F_footer.prototype = {
                 if(active > items.length-1){
                     active = items.length-1;
                 }
-                items[this.options.active].active = false;
+                if(items == this.options.items){
+                    items[this.options.active].active = false;
+                }
             }
             this.options.active = active;
         }
