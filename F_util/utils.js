@@ -65,5 +65,20 @@ var F_utils={
             param[key.name] = key.value;
         });
         return param;
+    },
+    /**
+     * 递归显示
+     * @param domArr
+     * @param index
+     */
+    showDomRecursive:function (domArr,index){
+    var dom =domArr[index];
+    if(index < domArr.length-1){
+        index++;
+        dom.fadeIn(300);
+        setTimeout(function(){
+            this.showDomRecursive(domArr,index);
+        }.bind(this),100);
     }
 }
+};

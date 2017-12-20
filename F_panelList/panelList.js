@@ -27,14 +27,17 @@ F_panelList.prototype = {
     resetItems:function(items){
         this.$dom.empty();
         this.$dom.data('panelList_id',this.options.id);
+        var contents = [];
         $.each(items,function(key,item){
             var contentDetail = this._initItem(item);
+            contents.push(contentDetail[0]);
             this.$dom.append(contentDetail);
         }.bind(this));
-
         if(typeof this.options.onLoadSuccess == 'function'){
             this.options.onLoadSuccess(this.options.items);
         }
+        //递归显示
+        F_utils.showDomRecursive(contents,0);
     },
     /**
      * 初始化
@@ -71,6 +74,7 @@ F_panelList.prototype = {
         var content = $('<li class="panelList-item-content"></li>');
         content.data('idFiled_item',item.idField);
         content.append(item.content);
+        content.css('display','none');
         return content;
     },
     /**
