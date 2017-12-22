@@ -49,6 +49,10 @@ var F_utils={
             case 'string':
                 return !Boolean(data);
             case 'object':
+                type = $.type(data);
+                if(type == 'date'){
+                    return false;
+                }
                 return $.isEmptyObject(data);
             default:return false;
         }
@@ -72,13 +76,25 @@ var F_utils={
      * @param index
      */
     showDomRecursive:function (domArr,index){
-    var dom =domArr[index];
-    if(index < domArr.length-1){
-        index++;
-        dom.fadeIn(300);
-        setTimeout(function(){
-            this.showDomRecursive(domArr,index);
-        }.bind(this),100);
+        var dom =domArr[index];
+        if(index < domArr.length){
+            index++;
+            dom.fadeIn(300);
+            setTimeout(function(){
+                this.showDomRecursive(domArr,index);
+            }.bind(this),100);
+        }
+    },
+    /**
+     * 格式化日期为 yyyy-MM-dd HH:mm:ss
+     * @param date
+     * @returns {string}
+     */
+    formatDate:function (date) {
+        if( !this.isBlank(date) && (date instanceof Date)){
+            return date.getFullYear()+'-'+(date.getMonth()+1) +'-'+ date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+        }else{
+            return '';
+        }
     }
-}
 };
